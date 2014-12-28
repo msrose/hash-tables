@@ -15,7 +15,6 @@ namespace HashTableRunner
         static Random _rand = new Random();
         static Stopwatch _sw = new Stopwatch();
 
-
         static void Main(string[] args)
         {
             Insert(9);
@@ -36,11 +35,11 @@ namespace HashTableRunner
             Insert(100);
             _map.Print();
 
-            _map.Set(1, 1);
+            _map[1] = 1;
             Console.Write("First get: ");
             TimedGet(1);
 
-            _map.Set(1337, 9001);
+            _map[1337] = 9001;
 
             TimedGet(1337);
             Insert(1000);

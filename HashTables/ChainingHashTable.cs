@@ -31,7 +31,7 @@ namespace HashTables
 
         private void Rehash()
         {
-            _size = _size.NextPrime();
+            _size = (_size * 2).NextPrime();
 
             List<KeyValuePair<K, V>>[] newTable = new List<KeyValuePair<K, V>>[_size];
 
@@ -56,6 +56,19 @@ namespace HashTables
             }
 
             _table = newTable;
+        }
+
+        public V this[K key]
+        {
+            get
+            {
+                return Get(key);
+            }
+
+            set
+            {
+                Set(key, value);
+            }
         }
 
         public void Set(K key, V value)
